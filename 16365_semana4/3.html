@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+
+      //retorna um número randômico inteiro entre 1 e máximo
+      function numeroRandomico(maximo) {
+        return parseInt(Math.random() * maximo) + 1;
+      }
+
+      function lePontos() {
+        const arrayEntrada = prompt("Entre com x,y").split(",");
+        return {x:arrayEntrada[0],y:arrayEntrada[1]};
+      }
+
+      function calculaDistancia(p1,p2) {
+        const dx = p1.x-p2.x;
+        const dy = p1.y-p2.y;
+        return Math.sqrt( dx*dx + dy*dy );
+      }
+
+      function geraPontos(total,maximo) {
+        const n = [];
+        for( let i = 0; i < total; i++) {
+          n[i] = {x:numeroRandomico(maximo),
+                  y:numeroRandomico(maximo),
+                  ativo:true};
+        }
+        return n;
+      }
+
+
+      let total = prompt(`Entre com o total de pontos`);
+      const n = geraPontos(total,5);
+      let tentativas = 0;
+      while( total > 0 ) {
+        let menorDistancia = Number.MAX_VALUE;
+        const ponto = lePontos();
+        tentativas++;
+        let i;
+        for( i = 0; i < n.length; i++ ) {
+          if ( n[i].ativo ) {
+            distancia = calculaDistancia(ponto,n[i]);
+            if (distancia < menorDistancia)
+              menorDistancia = distancia;
+          }
+
+          if ( (n[i].ativo) && (ponto.x == n[i].x) && (ponto.y == n[i].y) ) {
+            alert(`Encontrei um número`);
+            n[i].ativo = false;
+            total--;
+            break;
+          }
+        }
+        if (i == n.length)
+          alert(`Não acertou, mas a menor distância é ${menorDistancia}`);
+      }
+      alert(`Terminado em ${tentativas} tentativas`);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

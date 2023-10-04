@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			alert("Vamos Jogar: \nAdivinhe os Números que estão entre 1 e o número que você escolher")
+			let numeroMaximo = prompt("Entre com um Numero Máximo:");
+			let total = prompt("Quantos numero");
+			let n = [];
+			let X;
+			let Y;
+			let tentativas = 0;
+			let val=0
+			
+
+			for (let i = 0; i < total; i++) {
+				let ValorX = parseInt(Math.random() * numeroMaximo) + 1;
+				let ValorY = parseInt(Math.random() * numeroMaximo) + 1;
+
+				/*Objeto literais*/
+				n[i]={X:ValorX, Y:ValorY, ativo:true};
+				val = ValorX + ValorY;
+
+				console.log (n[i])
+				console.log (val)
+			}
+			
+			while (total > 0) {
+				X = prompt("Entre com o número X ");
+				Y = prompt("Entre com o número Y ");
+				tentativas++;
+				let i;
+				for (i = 0; i < n.length; i++) {
+
+					let dx = X-n[i].X;
+					let dy = Y-n[i].Y
+					let distancia = Math.sqrt(dx*dx + dy*dy);
+					alert("A distancia do ponto "+i+" e  de "+distancia);
+					if ((n[i].ativo) && (X == n[i].X) && (Y == n[i].Y)) {
+						alert("Você encontrou Um Número: X= "+n[i].X+ " Y= "+n[i].Y)
+						n[i].ativo = false;			
+						total --;					
+						break;
+					}
+				}
+
+			if (i == n.length){
+				for(i=0;i<n.length; i++){
+					if((n[i].ativo) && (n[i].X!= -1) && (n[i].Y!= -1)){
+					val= n[i].X + n[i].Y
+						
+					alert("Você errou\n Dica! X + Y dá " +val);	
+					console.log(n[i])	
+				}
+				}
+							
+			}
+
+			}
+			alert("Você acertou TOTOS os Números, em " +tentativas+ " tentativas");
+			
+		</script>
+	</head>
+	<body>		
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			alert("Vamos Jogar: \nAdivinhe os Números que estão entre 1 e o número que você escolher")
+			let numeroMaximo = prompt("Entre com um Numero Máximo:");
+			let total = prompt("Quantos numero");
+			let n = [];
+			let entrada = -1;
+			let tentativas = 0;
+
+			for (let i = 0; i < total; i++) {
+				n[i] = parseInt(Math.random() * numeroMaximo) + 1;
+				alert(n[i])
+			}
+			
+			while (total > 0) {
+				entrada = prompt("Entre com o número");
+				tentativas++;
+				let acertou = false;
+				for (let i = 0; i < n.length; i++) {
+					if ((!acertou) && (entrada == n[i])) {
+						alert("Você encontrou Um Número: "+n[i])
+						n[i] = -1;
+						total --;
+						acertou = true;
+					}
+				}
+
+			if (!acertou){
+				alert("Você errou");
+			}
+
+			}
+			alert("Você acertou TOTOS os Números, em " +tentativas+ " tentativas");
+			
+		</script>
+	</head>
+	<body>		
+	</body>
+</html>

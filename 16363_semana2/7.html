@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      let total = prompt("Entre com o total de pontos");
+      let n = [];
+      for( let i = 0; i < total; i++) {
+        n[i] = parseInt(Math.random() * 5) + 1;
+
+        console.log(n[i]);
+      }
+
+      let entrada = -1;
+      let tentativas = 0;
+      while( total > 0 ) {
+        entrada = prompt("Entre com o número");
+        tentativas++;
+        let acertou = false;
+        for( let i = 0; i < n.length; i++ ) {
+          if ( (!acertou) && ( entrada == n[i] ) ) {
+              alert("Encontrei um número");
+              n[i] = -1;
+              total--;
+              acertou = true;
+            }
+        }
+        if (!acertou)
+          alert("Errou");
+      }
+      alert("Terminado em " + tentativas + " tentativas");
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

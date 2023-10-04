@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      let n1 = parseInt(Math.random() * 10) + 1;
+      let n2 = parseInt(Math.random() * 10) + 1;
+      let total = 2;
+      let entrada = -1;
+      let tentativas = 0;
+      while( total > 0 ) {
+      	entrada = prompt("Entre com o número");
+      	tentativas++;
+      	if( entrada == n1 ) {
+      		alert("Encontrei um número");
+      		n1 = -1;
+      		total--;
+      	} else if (entrada == n2) {
+      		alert("Encontrei um número");
+      		n2 = -1;
+      		total--;
+      	} else {
+      		alert("Errou");
+      	}
+      }
+      alert("Terminado em " + tentativas + " tentativas");
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

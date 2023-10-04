@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+
+		<script>
+		//"!= diferente de"
+			alert("Vamos Jogar: \nAdivinhe os Três Números que estão entre 1 e o número que você escolher")
+			let numeroMaximo = prompt("Entre com um Numero Máximo:");
+			let n1 = parseInt(Math.random() * numeroMaximo)+1;
+			let n2 = parseInt(Math.random() * numeroMaximo)+1;
+			let n3 = parseInt(Math.random() * numeroMaximo)+1;
+			let n = [n1, n2, n3]
+			let val = 0;
+	
+			alert (n1)
+			alert (n2)
+			alert (n3)
+			let contador = 3;
+			let entrada = -1;
+
+			let v1 =n1;
+			let v2 =n2;
+			let v3 =n3;
+
+			let tent=0;
+			let cal=0;
+			let fal=0;
+
+			//laço Enquanto (*) {faça}
+			while (contador > 0){ 
+				entrada = prompt("Tente adivinha: Entre com um Número");
+				tent++;
+				if (entrada == n[0]){ 
+					alert("você acertou um dos números é "+n[0]);
+					contador--;
+					n[0] = -1;
+					fal++;
+				}else if (entrada == n[1]) {
+						alert("você acertou um dos números é "+n[1]);
+						contador--;
+						n[1] = -1;
+						fal++;
+				}else if (entrada == n[2]) {
+						alert("você acertou um dos números é "+n[2]);
+						contador--;
+						n[2] = -1;
+						fal++;
+				} else 
+					{if(n[0]!=-1){
+						if(entrada != n[0])
+							val = parseInt(Math.random() * 10)+1;
+							cal=val+n[0];
+						alert("você acertou "+fal+" falta "+contador+":\n Vai Uma dica: \n Um dos números somado com "+val+" da "+cal);
+					}else if(n[1]!=-1){
+						if(entrada != n[1])
+							val = parseInt(Math.random() * 10)+1;
+							cal=val*n[1];
+						alert("você acertou "+fal+" falta "+contador+":\n Vai Uma dica: \n Um dos números Mutiplicado com "+val+" da "+cal);
+					}else if(n[2]!=-1){			
+						if(entrada != n[2])
+							val = parseInt(Math.random() * 10)+1;
+							cal=n[2]/val;	
+						alert("você acertou "+fal+" falta "+contador+":\n Vai Uma dica:\n Um dos números Dividido com "+val+" da "+cal);
+					}
+				}
+		
+					
+			}
+			alert ("Parabéns Você Acertou os números são " +v1+", "+v2+" e "+v3+"\nem "+tent+" Tentativas");
+
+</script>;
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+
+<script>
+	//"!= diferente de"
+	alert("Vamos Jogar: \nAdivinhe os Três Números que estão entre 1 e o número que você escolher")
+	let numeroMaximo = prompt("Entre com um Numero Máximo:");
+	let n1 = parseInt(Math.random() * numeroMaximo)+1;
+	let n2 = parseInt(Math.random() * numeroMaximo)+1;
+	let n3 = parseInt(Math.random() * numeroMaximo)+1;
+	let val = 0;
+	
+
+	alert (n1)
+	alert (n2)
+	alert (n3)
+	let contador = 3;
+	let entrada = -1;
+
+	let v1 =n1;
+	let v2 =n2;
+	let v3 =n3;
+
+	let tent=0;
+	let cal=0;
+	let fal=0;
+
+	//laço Enquanto (*) {faça}
+	while (contador > 0){ 
+		entrada = prompt("Tente adivinha: Entre com um Número");
+		tent++;
+		if (entrada == n1){ 
+			alert("você acertou um dos números é "+n1);
+			contador--;
+			n1 = -1;
+			fal++;
+		}else if (entrada == n2) {
+				alert("você acertou um dos números é "+n2);
+				contador--;
+				n2 = -1;
+				fal++;
+		}else if (entrada == n3) {
+				alert("você acertou um dos números é "+n3);
+				contador--;
+				n3 = -1;
+				fal++;
+		} else 
+			{if(n1!=-1){
+				if(entrada != n1)
+					val = parseInt(Math.random() * 10)+1;
+					cal=val+n1;
+				alert("você acertou "+fal+" falta "+contador+":\n Vai Uma dica: \n Um dos números somado com "+val+" da "+cal);
+			}else if(n2!=-1){
+				if(entrada != n2)
+					val = parseInt(Math.random() * 10)+1;
+					cal=val*n2;
+				alert("você acertou "+fal+" falta "+contador+":\n Vai Uma dica: \n Um dos números Mutiplicado com "+val+" da "+cal);
+			}else if(n3!=-1){			
+				if(entrada != n3)
+					val = parseInt(Math.random() * 10)+1;
+					cal=n3/val;	
+				alert("você acertou "+fal+" falta "+contador+":\n Vai Uma dica:\n Um dos números Dividido com "+val+" da "+cal);
+			}
+		}
+		
+					
+	}
+	alert ("Parabéns Você Acertou os números são " +v1+", "+v2+" e "+v3+"\nem "+tent+" Tentativas");
+
+</script>;
+	</head>
+	<body>
+		
+	</body>
+</html>

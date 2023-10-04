@@ -1,0 +1,28 @@
+<script>
+	let peso = 100.5;
+	let altura = 1.71;
+	let imc = peso/altura ** 2
+	alert(imc)
+	
+	if (imc < 18.5){
+		alert("Magreza");
+	}
+	else if(imc > 18.5){
+			if(imc<=24.9){
+		alert("Normal");
+	}
+	else if(imc > 25.0){
+			if(imc<=29.9)
+		alert("Sobrepeso");
+	}
+	else if(imc > 30.0){
+			if(imc<=49.9)
+		alert("Obesidade");
+	} 
+	else {
+		alert("Obesidade Grave");
+	}
+	}
+
+</script>;
+

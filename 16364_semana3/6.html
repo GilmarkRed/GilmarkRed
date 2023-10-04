@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      let total = prompt("Entre com o total de pontos");
+      let n = [];
+      for( let i = 0; i < total; i++) {
+        let valorX = parseInt(Math.random() * 5) + 1;
+        let valorY = parseInt(Math.random() * 5) + 1;
+
+        n[i] = {x:valorX,y:valorY,ativo:true};
+
+        console.log(n[i]);
+      }
+
+      let x = -1;
+      let y = -1;
+      let tentativas = 0;
+      while( total > 0 ) {
+        let menorDistancia = Number.MAX_VALUE;
+
+      	x = prompt("Entre com o x");
+        y = prompt("Entre com o y");
+      	tentativas++;
+        let i;
+      	for( i = 0; i < n.length; i++ ) {
+
+          let dx = x-n[i].x;
+          let dy = y-n[i].y;
+          let distancia = Math.sqrt( dx*dx + dy*dy );
+          if ( n[i].ativo && (distancia < menorDistancia) )
+            menorDistancia = distancia;
+
+
+      		if ( (n[i].ativo) && (x == n[i].x) && (y == n[i].y) ) {
+	      	  alert("Encontrei um número");
+            n[i].ativo = false;
+      			total--;
+            break;
+      	  }
+      	}
+      	if (i == n.length)
+      		alert("Não acertou, mas a menor distância é "+ menorDistancia);
+      }
+      alert("Terminado em " + tentativas + " tentativas");
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
